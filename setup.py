@@ -7,6 +7,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "django>=4.2,<5.0",
+        "django-allauth>=65.10.0",
     ],
     author="Bay Nguyen",
     author_email="baybknguyen@gmail.com",
