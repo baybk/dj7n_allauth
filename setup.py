@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="test_package_app",
+    name="dj7n_allauth",
     version="0.1.0",
     packages=find_packages(),
     include_package_data=True,
@@ -10,10 +10,10 @@ setup(
     ],
     author="Bay Nguyen",
     author_email="baybknguyen@gmail.com",
-    description="Test package app for Django project",
+    description="Dj7n Allauth for Django project",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/baybk/test_package_app_in_django.git",
+    url="https://github.com/baybk/dj7n_allauth.git",
     license="MIT",
     classifiers=[
         "Framework :: Django",
