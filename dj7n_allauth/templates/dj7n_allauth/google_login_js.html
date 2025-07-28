@@ -23,8 +23,11 @@
             );
 
             window.addEventListener('message', (event) => {
-                if (event.data === 'google_login_success') {
-                    console.log("Login Google Success")
+                data = event.data
+                if (data.type === 'google_login_success') {
+                    console.log("token", data.access_token)
+                    console.log("Login Google Success, JS nhận đc accessToken và RefreshToken, call API nếu muốn")
+                    // window.location.href = "/"
                 }
             });
 

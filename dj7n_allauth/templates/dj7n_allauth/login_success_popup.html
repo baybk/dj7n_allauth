@@ -1,16 +1,41 @@
 <!-- login_success_popup.html -->
-<!DOCTYPE html>
 <html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Popup Phụ</title>
+</head>
 <body>
   <p>Đăng nhập thành công, vui lòng chờ...</p>
+  <p>
+    Ở trang này(login_success_popup.html), bạn dùng JS để gửi một tin nhắn dataNoti qua một route Websocket X (có bảo mật AccessToken) lên cho Backend,
+    Sau đó backend nhận đc, sẽ notify về cho FE Window chính(google_login_js.html) -> FE Window chính() nhận đc AccessToken sẽ hoạt động..
+  </p>
+  <p>
+    Vì thế, ở trang FE Window chính (google_login_js.html), bạn cần khai báo đoạn JS, để lắng nghe onMessage route X
+  </p>
+
+  <p>
+    Bảo mật, khi ở trang FE window chính, cần sinh ra một code OTP Y (hết hạn 1 phút), lưu vào Localstorage.
+    Sau đó mới mở FE window popup. 
+    Ở trang login_success_popup.html, khi đẩy message lên Backend, thì cần gửi luôn Y. Backend xác nhận Y tồn tại ở Redis.
+    thì đảm bảo message đẩy lên là hợp lệ, sẽ tiến hành bắn ngược về cho  FE window chính
+  </p>
   <script>
-    if (window.opener) {
-        console.log("window.opener", window.opener)
-        window.opener.postMessage('google_login_success', '*');
-        window.close();  // Đóng popup
-    } else {
-        console.log("window.opener null!!")
+    const access_token = "{{ access_token }}"
+    const refresh_token = "{{ refresh_token }}"
+    const username = "{{ username }}"
+    const dataNoti = {
+        type: 'google_login_success',
+        access_token: access_token,
+        refresh_token: refresh_token,
+        user_info: {
+            username: username,
+        }
     }
+    window.close();  // Đóng popup
   </script>
 </body>
 </html>
