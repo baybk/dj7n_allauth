@@ -5,14 +5,22 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from .views import google_login, get_me, api_get_me, update_password
+from .views import (
+    google_login, get_me, api_get_me,
+    update_password, login_success_popup,
+    google_login_js
+)
 
 
 urlpatterns = [
-    # Define your URL patterns here
+    # Login Google dùng cho SSR 
     path('google-login', google_login),
     path('me', get_me),
     path('update-password', update_password),
+    
+    # Login Google thuần JS
+    path('google-login-js', google_login_js),
+    path('login-success-popup', login_success_popup),
 
     # Define APIs
     # API login lấy access & refresh token

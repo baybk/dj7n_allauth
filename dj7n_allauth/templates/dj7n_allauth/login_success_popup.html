@@ -1,0 +1,16 @@
+<!-- login_success_popup.html -->
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Đăng nhập thành công, vui lòng chờ...</p>
+  <script>
+    if (window.opener) {
+        console.log("window.opener", window.opener)
+        window.opener.postMessage('google_login_success', '*');
+        window.close();  // Đóng popup
+    } else {
+        console.log("window.opener null!!")
+    }
+  </script>
+</body>
+</html>

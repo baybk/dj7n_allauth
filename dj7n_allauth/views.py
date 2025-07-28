@@ -10,6 +10,14 @@ def google_login(request):
         return redirect("/dj7n-allauth/me")
     return render(request, 'dj7n_allauth/google_login.html')
 
+def google_login_js(request):
+    if request.user.is_authenticated:
+        return redirect("/dj7n-allauth/me")
+    return render(request, 'dj7n_allauth/google_login_js.html')
+
+def login_success_popup(request):
+    return render(request, 'dj7n_allauth/login_success_popup.html')
+
 def get_me(request):
     user = request.user
     if not user.is_authenticated:

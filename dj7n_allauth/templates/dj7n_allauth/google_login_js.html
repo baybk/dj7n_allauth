@@ -1,0 +1,34 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Login with Google</h1>
+        <p>Click the button below to log in with your Google account.</p>
+        
+        <button onclick="return loginWithGoogle()">Login with Google</button>
+    </div>
+
+    <script>
+        function loginWithGoogle() {
+            const loginWindow = window.open(
+            'http://localhost:8000/accounts/google/login/',
+            'GoogleLogin',
+            'width=500,height=600'
+            );
+
+            window.addEventListener('message', (event) => {
+                if (event.data === 'google_login_success') {
+                    console.log("Login Google Success")
+                }
+            });
+
+            console.log("Đã set event window.addEventListener tại window chính")
+        }
+    </script>
+</html>
