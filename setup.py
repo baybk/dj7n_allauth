@@ -10,7 +10,8 @@ setup(
         "django-allauth>=65.10.0",
         "requests>=2.32.4"
         "jwt>=1.4.0",
-        "PyJWT>=2.10.1"
+        "PyJWT>=2.10.1",
+        "djangorestframework-simplejwt>=5.5.1"
     ],
     author="Bay Nguyen",
     author_email="baybknguyen@gmail.com",

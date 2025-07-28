@@ -1,0 +1,19 @@
+POST http://localhost:8000/dj7n-allauth/api/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### API refresh token
+POST http://localhost:8000/dj7n-allauth/api/token/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NDIzNDg4NCwiaWF0IjoxNzUzNjMwMDg0LCJqdGkiOiJhZmU3YjhlMzQ3NjQ0NjczYmFlY2Y5ODUyNmNiMGYzZiIsInVzZXJfaWQiOiIxIn0.nKeTli6-OSVwX9ikBe5lnp92DkZE_FDOTl0r9PCO-eI"
+}
+
+### API get-me
+GET http://localhost:8000/dj7n-allauth/api/get-me/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUzNjMxNjI3LCJpYXQiOjE3NTM2MzA3MjcsImp0aSI6ImU2NWZmMzVjNTM1ZTRiOGFhMGQ4N2RhNzA4MTEzMDlkIiwidXNlcl9pZCI6IjIifQ.3wr2WdIGj55MDNowW5ZEuO8I1g9yYaO7DCnK58P2tcw

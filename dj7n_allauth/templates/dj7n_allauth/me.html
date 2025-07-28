@@ -11,5 +11,10 @@
         <h1>Profile</h1>
         <p>Username: {{ user.username }}</p>
         <p>Email: {{ user.email }}</p>
+
+        <h2>For API platform, use `/dj7n-allauth/api/token/`, api refresh `/dj7n-allauth/api/token/refresh/`</h2>
+        <p>Access token JWT for API: {{ access_token }}</p>
+        <p>Refresh token JWT for API: {{ refresh_token }}</p>
+
     </div>
 </html>
