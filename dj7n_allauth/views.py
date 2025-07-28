@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -6,6 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 
 def google_login(request):
+    if request.user.is_authenticated:
+        return redirect("/dj7n-allauth/me")
     return render(request, 'dj7n_allauth/google_login.html')
 
 def get_me(request):
