@@ -8,8 +8,8 @@ setup(
     install_requires=[
         "django>=4.2,<5.0",
         "django-allauth>=65.10.0",
-        "requests>=2.32"
-        "jwt>=1.4",
+        "requests>=2.32.4",
+        "jwt>=1.4.0",
         "PyJWT>=2.9.0",
         "djangorestframework-simplejwt>=5.5.0"
     ],
