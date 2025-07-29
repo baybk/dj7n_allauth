@@ -11,10 +11,9 @@ pip install -e git+https://github.com/baybk/dj7n_allauth.git@dj7n_allauth#egg=dj
 - CHÚ Ý 2: Dj7n Allauth app cần bạn đảm bảo khai báo trong root urls: `path('dj7n-allauth/', include('dj7n_allauth.urls'))`,
     Sau đó bạn có thể truy cập vào đường dẫn `/dj7n-allauth/google-login` hoặc `/dj7n-allauth/google-login-js` để đăng nhập bằng Google.
 
-- CHÚ Ý 3: (Optional) Dj7n Allauth app cần bạn khai báo settings để test redirect sau khi login thành công:  `LOGIN_REDIRECT_URL = '/dj7n-allauth/me'` (nếu xài ServerSide Rendering), Còn thuần API thì xài `LOGIN_REDIRECT_URL = '/dj7n-allauth/login-success-popup'`
-
-- CHÚ Ý 4: Dj7n Allauth app cần bạn đảm bảo khai báo settings:
+- CHÚ Ý 3: Dj7n Allauth app cần bạn đảm bảo khai báo settings:
 ```
+    ACCOUNT_ADAPTER = 'dj7n_allauth.adapters.MyAccountAdapter'
     REST_FRAMEWORK = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework_simplejwt.authentication.JWTAuthentication',
