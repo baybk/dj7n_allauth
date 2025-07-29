@@ -30,7 +30,7 @@
             );
 
             window.addEventListener("storage", (event) => {
-                if (event.key === "dj7n_access_token") {
+                if (event.key === "google_login_success") {
                     window.location.href = "/dj7n-allauth/me" // hoăc call API gì đó sử dụng Token
                 }
             });

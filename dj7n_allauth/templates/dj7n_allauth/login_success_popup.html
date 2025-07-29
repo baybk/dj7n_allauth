@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Popup Phụ</title>
+    <title>Google Login Sucess</title>
 </head>
 <body>
   <p>Đăng nhập thành công, vui lòng chờ...</p>
@@ -13,6 +13,7 @@
     const access_token = "{{ access_token }}"
     const refresh_token = "{{ refresh_token }}"
     const username = "{{ username }}"
+    localStorage.setItem("google_login_success", "y")
     localStorage.setItem("dj7n_access_token", access_token)
     localStorage.setItem("dj7n_refresh_token", refresh_token)
     window.close();  // Đóng popup
