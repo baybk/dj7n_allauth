@@ -16,22 +16,24 @@
 
     <script>
         function loginWithGoogle() {
+            const popupWidth = 500;
+            const popupHeight = 500;
+
+            // Tính toán vị trí giữa màn hình
+            const left = (window.screen.width / 2) - (popupWidth / 2);
+            const top = (window.screen.height / 2) - (popupHeight / 2);
+
             const loginWindow = window.open(
-            'http://localhost:8000/accounts/google/login/',
-            'GoogleLogin',
-            'width=500,height=600'
+                '/accounts/google/login/',
+                'GoogleLogin',
+                `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
             );
 
-            window.addEventListener('message', (event) => {
-                data = event.data
-                if (data.type === 'google_login_success') {
-                    console.log("token", data.access_token)
-                    console.log("Login Google Success, JS nhận đc accessToken và RefreshToken, call API nếu muốn")
-                    // window.location.href = "/"
+            window.addEventListener("storage", (event) => {
+                if (event.key === "dj7n_access_token") {
+                    window.location.href = "/dj7n-allauth/me" // hoăc call API gì đó sử dụng Token
                 }
             });
-
-            console.log("Đã set event window.addEventListener tại window chính")
         }
     </script>
 </html>

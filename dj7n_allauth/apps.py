@@ -69,34 +69,4 @@ class Dj7nAllauthAppConfig(AppConfig):
                 "Access link to get Google client id and secret : https://console.cloud.google.com/apis/credentials"
             )
         
-        print(
-            "CHÚ Ý 1: Dj7n Allauth app cần bạn đảm bảo khai báo trong root urls: path('accounts/', include('allauth.urls')),\n" + 
-            "và xóa bỏ (nếu có) urls mặc định của Django (path('accounts/', include('django.contrib.auth.urls'))). \n")
-        
-        print(
-            "CHÚ Ý 2: Dj7n Allauth app cần bạn đảm bảo khai báo trong root urls: path('dj7n-allauth/', include('dj7n_allauth.urls')) ,\n" +
-            "Sau đó bạn có thể truy cập vào đường dẫn /dj7n-allauth/google-login để đăng nhập bằng Google. \n")
-        
-        print(
-            "CHÚ Ý 3: Dj7n Allauth app cần bạn đảm bảo khai báo settings: LOGIN_REDIRECT_URL = '/dj7n-allauth/me' . \n")
-        
-        print(
-            "CHÚ Ý 4: Dj7n Allauth app cần bạn đảm bảo khai báo settings: \n" +
-            '''
-            REST_FRAMEWORK = {
-                'DEFAULT_AUTHENTICATION_CLASSES': (
-                    'rest_framework_simplejwt.authentication.JWTAuthentication',
-                )
-            }
-            from datetime import timedelta
-            SIMPLE_JWT = {
-                'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
-                'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-                'ROTATE_REFRESH_TOKENS': False,
-                'BLACKLIST_AFTER_ROTATION': True,
-                'AUTH_HEADER_TYPES': ('Bearer',),
-            }
-            '''
-        )
-
         return super().ready()

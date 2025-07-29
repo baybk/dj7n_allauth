@@ -16,9 +16,6 @@ def google_login_js(request):
     return render(request, 'dj7n_allauth/google_login_js.html')
 
 def login_success_popup(request):
-    return render(request, 'dj7n_allauth/login_success_popup.html')
-
-def get_me(request):
     user = request.user
     if not user.is_authenticated:
         return render(request, 'dj7n_allauth/not_authenticated.html')
@@ -30,6 +27,16 @@ def get_me(request):
         'user': user,
         'refresh_token': refresh_token,
         'access_token': access_token,
+    }
+    return render(request, 'dj7n_allauth/login_success_popup.html', ctx)
+
+def get_me(request):
+    user = request.user
+    if not user.is_authenticated:
+        return render(request, 'dj7n_allauth/not_authenticated.html')
+    
+    ctx = {
+        'user': user,
     }
     
     if not user.has_usable_password():

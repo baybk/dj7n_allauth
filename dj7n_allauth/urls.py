@@ -18,7 +18,7 @@ urlpatterns = [
     path('me', get_me),
     path('update-password', update_password),
     
-    # Login Google thuần JS
+    # Login Google thuần JS => Phục vụ cho JS framework như Vuejs..
     path('google-login-js', google_login_js),
     path('login-success-popup', login_success_popup),
 
