@@ -69,4 +69,6 @@ class Dj7nAllauthAppConfig(AppConfig):
                 "Access link to get Google client id and secret : https://console.cloud.google.com/apis/credentials"
             )
         
+        print("NOTICE: The dj7n-allauth package need you to read the README.md file of this package carefully!!!")
+
         return super().ready()
